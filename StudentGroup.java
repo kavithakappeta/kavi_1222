@@ -328,6 +328,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		
 	}
 
 	@Override
@@ -363,12 +364,50 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
-		return null;
+		double max=0.0;
+		for(int i=0;i<students.length;i++)
+		{	
+			if(students[i].avgMark>max)
+			{
+				max=students[i].avgMark;
+			}
+		}
+		Student[] s;
+		for(int i=0,j=0;i<students.length;i++)
+		{	
+			if(students[i].avgMark=max)
+			{
+				s[j]=students[i];
+				j++;
+			}
+		}
+
+		return s;
 	}
 
 	@Override
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
-		return null;
+		try
+		{
+			if(student==NULL)
+			{
+				throw new IllegalArgumentException;
+			}
+			else
+			{
+				for(int i=0;i<students.length;i++)
+				{	
+					if(students[i]==student)
+					{
+						return students[i+1];
+					}
+				}
+			}
+		}
+		catch(IllegalArgumentException e)
+		{
+			System.out.println("Exception caught");
+		}
 	}
 }
